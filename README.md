@@ -7,12 +7,11 @@ go crud API inspired by 11 projects in one free code camp tutorial https://www.y
 ```mermaid
 flowchart LR
 
-    b1-->c1-->d1-->e1
-    b2-->c2-->d2-->e2
-    a3-->b3-->c3-->d3-->e3
-    b4-->c4-->d4-->e4
-    b5-->c5-->d5-->e5
-
+    get_all_route-->get_movies_function-->d1-->e1
+    get_by_id_route-->get_movie_function-->d2-->e2
+    a3-->create_route-->create_movie_function-->d3-->e3
+    update_route-->update_movie_function-->d4-->e4
+    delete_route-->delete_movie_function-->d5-->e5
 
 subgraph Start
 direction TB
@@ -20,22 +19,21 @@ a2(DATABASE)-->a3(MOVIES SERVER)
 LOCALHOST:8000
 end
 
-
-    subgraph Routes
-b1(GET ALL)
-b2(GET BY ID)
-b3(CREATE)
-b4(UPDATE)
-b5(DELETE)
-    end
+subgraph Routes
+    get_all_route(GET ALL)
+    get_by_id_route(GET BY ID)
+    create_route(CREATE)
+    update_route(UPDATE)
+    delete_route(DELETE)
+end
 
 subgraph Functions
-c1(getMovies)
-c2(getMovie)
-c3(createMovie)
-c4(updateMovie)
-c5(deleteMovie)
-    end
+    get_movies_function(getMovies)
+    get_movie_function(getMovie)
+    create_movie_function(createMovie)
+    update_movie_function(updateMovie)
+    delete_movie_function(deleteMovie)
+end
 
 subgraph Endpoints
 d1("/movies")
